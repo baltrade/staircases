@@ -1,0 +1,455 @@
+﻿<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8">
+  <title>SDesign – Spirālveida Kāpnes Premium Stilā</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --bg: #1c1c1e;
+      --text: #e0e0e0;
+      --orange: #a67c00;
+      --warm-yellow: #d4af37;
+      --gray-text: #a0a0a0;
+      --contact-color: #c0c0c0;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--bg) url('photo/marble-bg.jpg') no-repeat center/cover; /* Замените на реальный путь к текстуре */
+      color: var(--text);
+      overflow-x: hidden;
+    }
+    /* HEADER */
+    header {
+      position: relative;
+      z-index: 100;
+      padding: 0 40px;
+      height: 90px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(to bottom, rgba(28,28,30,0.8), rgba(42,42,44,0.6));
+      backdrop-filter: blur(12px);
+      max-width: 1400px;
+      margin: 0 auto;
+      border-bottom: 1px solid rgba(166,124,0,0.15);
+    }
+    .logo-img {
+      height: 78px;
+      max-width: 320px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
+    }
+    .contact-right {
+      position: absolute;
+      right: 40px;
+      bottom: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      font-weight: 500;
+      font-size: 1.05rem;
+    }
+    .contact-right a {
+      color: var(--contact-color);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all .3s ease;
+      white-space: nowrap;
+    }
+    .contact-right a:hover {
+      color: var(--orange);
+      text-shadow: 0 0 8px rgba(166,124,0,0.5);
+    }
+    .contact-right a i {
+      color: var(--warm-yellow) !important;
+      font-size: 1.15rem;
+    }
+    /* HERO */
+    .hero {
+      height: 70vw;
+      max-height: 80vh;
+      min-height: 400px;
+      overflow: hidden;
+      position: relative;
+      background: var(--bg);
+    }
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+    }
+    /* GALLERY SECTION */
+    .gallery-section {
+      padding: 40px 40px 60px;
+      background: #2a2a2c;
+      text-align: left;
+    }
+    .section-description {
+      font-size: 1.2rem;
+      color: var(--gray-text);
+      line-height: 1.6;
+      text-align: justify;
+      margin-bottom: 20px;
+      font-weight: 400;
+    }
+    .section-title {
+      font-size: 2.8rem;
+      margin: 60px 0 15px;
+      letter-spacing: 1px;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: center;
+      background: linear-gradient(135deg, #8c8c88 0%, #b8b8b5 50%, #a0a09c 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 4px rgba(140,140,136,0.3));
+      text-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    }
+    .services-list {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+    .services-list li {
+      font-size: 1.2rem;
+      color: var(--gray-text);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: flex-start;
+    }
+    .services-list li i {
+      margin-right: 14px;
+      font-size: 1.6em;
+      font-weight: 900;
+      width: 28px;
+      text-align: center;
+      color: var(--warm-yellow);
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 25px;
+      margin-top: 60px;
+    }
+    .project-card {
+      background: #252525;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,.3);
+      transition: all .4s cubic-bezier(.25,.8,.25,1);
+      border: 1px solid #333;
+      cursor: pointer;
+      aspect-ratio: 3/4;
+      min-height: 400px;
+    }
+    .project-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--orange);
+      box-shadow: 0 8px 20px rgba(166,124,0,.15);
+    }
+    .main-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform .4s ease;
+      background: #252525;
+      display: block;
+      cursor: pointer;
+    }
+    .main-photo:hover {
+      transform: scale(1.04);
+    }
+    /* MODAL */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,.97);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .modal-content {
+      max-width: 92%;
+      max-height: 82vh;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 0 60px rgba(166,124,0,.25);
+      border: 1px solid #444;
+      position: relative;
+    }
+    .modal img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      transform: scale(0.95);
+      transition: transform .5s ease;
+      cursor: default;
+    }
+    .modal img.active {
+      transform: scale(1);
+    }
+    .close-btn {
+      position: absolute;
+      background: var(--warm-yellow);
+      color: #000;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      font-size: 26px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all .3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,.5);
+      z-index: 10;
+    }
+    .close-btn:hover {
+      background: #fff;
+      transform: scale(1.15);
+      box-shadow: 0 6px 20px rgba(166,124,0,.6);
+    }
+    .close-btn { top: 20px; right: 20px; }
+    /* FOOTER */
+    .footer {
+      position: relative;
+      padding: 22px 20px;
+      background: linear-gradient(to top, rgba(28,28,30,0.8), rgba(42,42,44,0.6));
+      border-top: 1px solid rgba(166,124,0,0.2);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      text-align: center;
+    }
+    .footer-slogan {
+      font-size: 1.5rem;
+      color: var(--contact-color);
+      line-height: 1.6;
+      font-weight: 400;
+      margin: 0;
+      padding: 0 15px;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+      display: block;
+    }
+    .footer .contact {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 500px;
+      padding: 0 20px;
+      flex-wrap: nowrap;
+      gap: 20px;
+    }
+    .footer .contact a {
+      font-size: 1rem;
+      color: var(--contact-color);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: 0.3s;
+      white-space: nowrap;
+    }
+    .footer .contact a:hover {
+      color: var(--orange);
+    }
+    .footer .contact i {
+      color: var(--warm-yellow);
+      font-size: 1.1rem;
+    }
+    /* АДАПТИВНОСТЬ */
+    @media(max-width:992px) {
+      .gallery { grid-template-columns: repeat(2,1fr); }
+      .section-title { font-size: 2.4rem; }
+      .footer-slogan { font-size: 1.35rem; }
+    }
+    @media(max-width:768px) {
+      header { height: 80px; padding: 0 15px; }
+      .logo-img { height: 70px; max-width: 220px; }
+      .contact-right { right: 15px; bottom: 10px; font-size: .95rem; gap: 5px; }
+      .gallery-section { padding: 30px 20px 50px; }
+      .section-title { font-size: 2.2rem; }
+      .section-description { font-size: 1.1rem; }
+      .services-list li { font-size: 1.1rem; }
+      .services-list li i { font-size: 1.5em; margin-right: 12px; }
+      .footer { padding: 18px 15px; gap: 12px; }
+      .footer-slogan { font-size: 1.25rem; }
+      .footer .contact { justify-content: center; gap: 15px; }
+    }
+    @media(max-width:576px) {
+      header { height: 70px; padding: 0 12px; }
+      .logo-img { height: 62px; max-width: 190px; }
+      .contact-right { right: 12px; bottom: 8px; font-size: .9rem; gap: 4px; }
+      .contact-right i { font-size: 1.05rem; }
+      .hero { height: 60vw; max-height: 65vh; }
+      .gallery { grid-template-columns: repeat(2,1fr); gap: 16px; margin-top: 40px; }
+      .project-card { min-height: 0; aspect-ratio: 3/4; }
+      .section-title { font-size: 1.8rem; margin-top: 40px; }
+      .section-description { font-size: 1.0rem; }
+      .services-list li { font-size: 1.0rem; }
+      .services-list li i { font-size: 1.3em; margin-right: 10px; }
+      .footer .contact a { font-size: .85rem; }
+      .footer {
+        padding: 10px 12px;
+        gap: 6px;
+        align-items: center;
+        text-align: center;
+      }
+      .footer-slogan {
+        font-size: 0.92rem;
+        padding: 0 10px;
+        line-height: 1.4;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: center;
+      }
+      .footer .contact {
+        justify-content: center;
+        gap: 12px;
+        padding: 0 10px;
+      }
+    }
+    @media(max-width:480px) {
+      .footer-slogan { font-size: 0.88rem; }
+      .footer .contact a { font-size: 0.82rem; }
+    }
+    @media(max-width:400px) {
+      .footer-slogan { font-size: 0.84rem; }
+      .footer .contact a { font-size: 0.8rem; }
+      .gallery { grid-template-columns: 1fr; }
+      .footer .contact { gap: 10px; }
+    }
+    @media(orientation:landscape) and (max-height:600px) {
+      .hero { height: 90vh; max-height: none; }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <img src="esdesign.jpg" alt="ESDESIGN Logo" class="logo-img">
+    <div class="contact-right">
+      <a href="tel:+37125538622"><i class="fas fa-phone"></i> +37125538622</a>
+      <a href="mailto:metalhammers@inbox.lv"><i class="fas fa-envelope"></i> metalhammers@inbox.lv</a>
+    </div>
+  </header>
+  <!-- HERO -->
+  <section class="hero">
+    <img src="photo/baner.jpg" alt="Spirālveida kāpnes" class="hero-image">
+  </section>
+  <!-- GALLERY -->
+  <section class="gallery-section">
+    <p class="section-description">
+      Mēs izgatavojam spirālveida kāpnes klasiskā kalta metāla stilā — ar ažūrām metāla pakāpieniem, dekoratīviem ornamentiem un izteiksmīgu centrālo balstu.
+Mēs specializējamies vienā estētiski izkoptā virzienā — vintage mākslinieciskajā kalumā. Pēc klienta vēlmes iespējamas nelielas izmaiņas:
+    </p>
+    <ul class="services-list">
+      <li><i class="fas fa-check"></i> krāsojuma tonis</li>
+      <li><i class="fas fa-check"></i> diametra un augstuma pielāgošana</li>
+      <li><i class="fas fa-check"></i> koka pakāpienu pievienošana</li>
+    </ul>
+    <p class="section-description" style="text-align:left;">
+     
+Mēs radām nevis vienkārši kāpnes, bet interjera arhitektonisku akcentu. Katrs izstrādājums tiek veidots konkrētai telpai, ņemot vērā izmērus, griestu augstumu un drošības prasības.
+Ja meklējat spirālveida kāpnes cēlā kalta metāla stilā — mēs tās izgatavosim tieši jums.
+<br>Sazinieties ar mums, lai saņemtu konsultāciju un izmaksu aprēķinu!
+    </p>
+    <h2 class="section-title">Fotogalerija</h2>
+    <div class="gallery">
+      <div class="project-card">
+        <img class="main-photo" src="photo/1.jpg" alt="Project 1">
+      </div>
+      <div class="project-card">
+        <img class="main-photo" src="photo/11.jpg" alt="Project 2">
+      </div>
+      <div class="project-card">
+        <img class="main-photo" src="photo/2.jpg" alt="Project 3">
+      </div>
+      <div class="project-card">
+        <img class="main-photo" src="photo/3.jpg" alt="Project 4">
+      </div>
+      <div class="project-card">
+        <img class="main-photo" src="photo/33.jpg" alt="Project 5">
+      </div>
+      <div class="project-card">
+        <img class="main-photo" src="photo/4.jpg" alt="Project 6">
+      </div>
+    </div>
+  </section>
+  <!-- MODAL -->
+  <div class="modal" id="imageModal">
+    <span class="close-btn">X</span>
+    <div class="modal-content">
+      <img id="modalImage" src="" alt="">
+    </div>
+  </div>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p class="footer-slogan">Mūsu dizains – tava interjera pērle!</p>
+    <div class="contact">
+      <a href="tel:+37125538622"><i class="fas fa-phone"></i> +37125538622</a>
+      <a href="mailto:metalhammers@inbox.lv"><i class="fas fa-envelope"></i> metalhammers@inbox.lv</a>
+    </div>
+  </footer>
+  <script>
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const closeBtn = document.querySelector('.close-btn');
+    document.querySelectorAll('.project-card').forEach(card => {
+      const main = card.querySelector('.main-photo');
+      if (main) {
+        main.onclick = e => {
+          e.preventDefault();
+          openModal(main.src);
+        };
+      }
+    });
+    function openModal(src) {
+      modalImg.src = src;
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      modalImg.classList.add('active');
+    }
+    closeBtn.onclick = () => {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    };
+    window.onclick = e => {
+      if (e.target === modal) closeBtn.click();
+    };
+    document.addEventListener('keydown', e => {
+      if (modal.style.display === 'flex') {
+        if (e.key === 'Escape') closeBtn.click();
+      }
+    });
+  </script>
+</body>
+</html>
