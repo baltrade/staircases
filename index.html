@@ -29,17 +29,17 @@ body {
 
 /* HEADER */
 header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  position: relative;
   z-index: 100;
-  background: #000;
-  backdrop-filter: blur(12px);
+  padding: 0 40px;
+  height: 120px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 40px;
+  background: #000000;
+  backdrop-filter: blur(12px);
+  max-width: 1400px;
+  margin: 0 auto;
   border-bottom: 1px solid rgba(166,124,0,0.15);
 }
 
@@ -50,7 +50,7 @@ header {
   filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
 }
 
-/* LANG SWITCH + CONTACTS WRAPPER */
+/* LANG + CONTACT WRAPPER */
 .header-right {
   display: flex;
   flex-direction: column;
@@ -111,7 +111,7 @@ header {
 /* HERO */
 .hero {
   width: 100%;
-  margin-top: 120px; /* чтобы контент не перекрывался шапкой */
+  margin-top: 0; /* без отступа на десктопе */
 }
 
 .hero-image {
@@ -131,7 +131,7 @@ header {
   font-size: 1.2rem;
   color: var(--gray-text);
   line-height: 1.6;
-  text-align: left;
+  text-align: left; /* оставляем left */
   margin-bottom: 20px;
 }
 
@@ -228,9 +228,9 @@ header {
   position: absolute;
   top: 20px;
   right: 20px;
-  background: #8B6A0E; /* фон кнопки */
-  color: #000;          /* цвет крестика */
-  width: 40px;          /* уменьшили в 2 раза */
+  background: #8B6A0E;
+  color: #000;
+  width: 40px;
   height: 40px;
   border-radius: 50%;
   font-size: 26px;
@@ -259,8 +259,7 @@ header {
 .footer .contact {
   display: flex;
   gap: 20px;
-  flex-wrap: wrap; /* чтобы переносилось на 2 строки на моб */
-  justify-content: center;
+  flex-wrap: nowrap;
 }
 
 .footer .contact a {
@@ -281,33 +280,47 @@ header {
 
 @media(max-width:768px){
   header {
-    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .hero {
+    margin-top: 120px; /* только для мобильных */
   }
 
   .logo-img { height: 80px; }
 
+  /* LANG + CONTACT */
   .header-right { flex-direction: column; align-items: flex-end; gap: 5px; }
   .lang-switch { order: 0; margin-bottom: 5px; }
   .contact-right { order: 1; font-size: 0.95rem; gap: 5px; }
 
   .gallery-section { padding: 30px 20px 50px; }
   .section-title { font-size: 2.2rem; }
-  .hero { margin-top: 120px; } /* под шапкой */
 }
 
 @media(max-width:576px){
+  header { height: auto; }
+  .hero { margin-top: 110px; }
   .logo-img { height: 70px; }
+
   .gallery { grid-template-columns: repeat(2,1fr); gap: 16px; }
+
   .footer-slogan { font-size: 0.92rem; }
+  .footer .contact { flex-wrap: wrap; justify-content: center; gap: 10px 20px; }
 }
 
-@media(max-width:400px){
-  .gallery { grid-template-columns: 1fr; }
-}
+@media(max-width:400px){ .gallery { grid-template-columns: 1fr; } }
+
 </style>
 </head>
 <body>
-
 <header>
   <img src="photo/logo1.jpg" alt="ESDESIGN Logo" class="logo-img">
   <div class="header-right">
@@ -331,8 +344,8 @@ header {
 <section class="gallery-section">
   <p class="section-description desc1">
     Mēs izgatavojam spirālveida kāpnes vintāžas stilā — ar ažūrām metāla pakāpēm, dekoratīviem ornamentiem un izteiksmīgu centrālo balstu.
-    Mēs specializējamies vienā estētiski izkoptā virzienā — ekskluzīvās vintage spirālveida kāpnēs, kur klasiskā kaluma elegance apvienojas ar izturīgu konstrukciju un pārdomātu dizainu.
-    Pēc klienta vēlmēm iespējamas nelielas individuālas pielāgošanas:
+ Mēs specializējamies vienā estētiski izkoptā virzienā — ekskluzīvās vintage spirālveida kāpnēs, kur klasiskā kaluma elegance apvienojas ar izturīgu konstrukciju un pārdomātu dizainu.
+ Pēc klienta vēlmēm iespējamas nelielas individuālas pielāgošanas:
   </p>
   <ul class="services-list">
     <li><i class="fas fa-circle"></i> krāsojuma tonis</li>
@@ -342,9 +355,9 @@ header {
   </ul>
   <p class="section-description desc2">
     Mēs radām nevis tikai kāpnes, bet izteiksmīgu interjera arhitektonisko akcentu.
-    Katrs izstrādājums tiek izgatavots konkrētai telpai, ņemot vērā tās izmērus, griestu augstumu, funkcionālās prasības un drošības standartus.
-    Ja meklējat spirālveida kāpnes cēlā vintāžas kalta metāla stilā — mēs tās izgatavosim tieši jums.
-    <br>Sazinieties ar mums, lai saņemtu konsultāciju un izmaksu aprēķinu!
+ Katrs izstrādājums tiek izgatavots konkrētai telpai, ņemot vērā tās izmērus, griestu augstumu, funkcionālās prasības un drošības standartus.
+ Ja meklējat spirālveida kāpnes cēlā vintāžas kalta metāla stilā — mēs tās izgatavosim tieši jums.
+<br>Sazinieties ar mums, lai saņemtu konsultāciju un izmaksu aprēķinu!
   </p>
   <h2 class="section-title gallery-title">Fotogalerija</h2>
   <div class="gallery">
@@ -409,19 +422,22 @@ const translations = {
 };
 
 function setLanguage(lang){
-  document.documentElement.lang=lang;
-  document.title=translations[lang].title;
-  document.querySelector('.desc1').innerHTML=translations[lang].desc1.replace(/\n/g,'<br>');
-  const services=document.querySelectorAll('.services-list li');
-  services[0].childNodes[1].nodeValue=' '+translations[lang].service1;
-  services[1].childNodes[1].nodeValue=' '+translations[lang].service2;
-  services[2].childNodes[1].nodeValue=' '+translations[lang].service3;
-  services[3].childNodes[1].nodeValue=' '+translations[lang].service4;
-  document.querySelector('.desc2').innerHTML=translations[lang].desc2.replace(/\n/g,'<br>');
-  document.querySelector('.gallery-title').textContent=translations[lang].galleryTitle;
-  document.querySelector('.footer-slogan').textContent=translations[lang].slogan;
-  document.querySelector('.hero-image').alt=translations[lang].heroAlt;
-  document.querySelectorAll('.lang-switch a').forEach(a=>{a.classList.toggle('active',a.dataset.lang===lang);});
+  document.documentElement.lang = lang;
+  document.title = translations[lang].title;
+  document.querySelector('.desc1').innerHTML = translations[lang].desc1.replace(/\n/g,'<br>');
+  const services = document.querySelectorAll('.services-list li');
+  services[0].childNodes[1].nodeValue = ' ' + translations[lang].service1;
+  services[1].childNodes[1].nodeValue = ' ' + translations[lang].service2;
+  services[2].childNodes[1].nodeValue = ' ' + translations[lang].service3;
+  services[3].childNodes[1].nodeValue = ' ' + translations[lang].service4;
+  document.querySelector('.desc2').innerHTML = translations[lang].desc2.replace(/\n/g,'<br>');
+  document.querySelector('.gallery-title').textContent = translations[lang].galleryTitle;
+  document.querySelector('.footer-slogan').textContent = translations[lang].slogan;
+  document.querySelector('.hero-image').alt = translations[lang].heroAlt;
+
+  document.querySelectorAll('.lang-switch a').forEach(a=>{
+    a.classList.toggle('active',a.dataset.lang===lang);
+  });
 }
 
 document.querySelectorAll('.lang-switch a').forEach(link=>{
@@ -431,20 +447,33 @@ document.querySelectorAll('.lang-switch a').forEach(link=>{
   });
 });
 
+// Initial set
 setLanguage('lv');
 
-const modal=document.getElementById('imageModal');
-const modalImg=document.getElementById('modalImage');
-const closeBtn=document.querySelector('.close-btn');
+// MODAL
+const modal = document.getElementById('imageModal');
+const modalImg = document.getElementById('modalImage');
+const closeBtn = document.querySelector('.close-btn');
 document.querySelectorAll('.project-card').forEach(card=>{
-  const main=card.querySelector('.main-photo');
-  if(main){ main.onclick=e=>{ e.preventDefault(); openModal(main.src); }; }
+  const main = card.querySelector('.main-photo');
+  if(main){ main.onclick = e=>{ e.preventDefault(); openModal(main.src); }; }
 });
-function openModal(src){ modalImg.src=src; modal.style.display='flex'; document.body.style.overflow='hidden'; modalImg.classList.add('active'); }
-closeBtn.onclick=()=>{ modal.style.display='none'; document.body.style.overflow='auto'; }
-window.onclick=e=>{ if(e.target===modal) closeBtn.click(); }
-document.addEventListener('keydown',e=>{ if(modal.style.display==='flex' && e.key==='Escape') closeBtn.click(); });
+function openModal(src){
+  modalImg.src = src;
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  modalImg.classList.add('active');
+}
+closeBtn.onclick = ()=>{
+  modal.style.display = 'none';
+  document.body.style.overflow = 'auto';
+};
+window.onclick = e=>{
+  if(e.target===modal) closeBtn.click();
+};
+document.addEventListener('keydown',e=>{
+  if(modal.style.display==='flex'){ if(e.key==='Escape') closeBtn.click(); }
+});
 </script>
-
 </body>
-</html
+</html>
