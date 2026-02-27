@@ -319,7 +319,11 @@ header {
   }
   .gallery { grid-template-columns: repeat(2,1fr); gap: 16px; }
 
-  .footer-slogan { font-size: 1.1rem; }
+  .footer-slogan { 
+    font-size: 1.2rem !important; /* увеличено с 1.1rem */
+    line-height: 1.4;
+    text-align: center !important;
+  }
   .footer .contact { flex-wrap: wrap; justify-content: center; gap: 10px 20px; }
 }
 @media(max-width:400px){ .gallery { grid-template-columns: 1fr; } }
@@ -483,5 +487,6 @@ document.addEventListener('keydown',e=>{
 </script>
 </body>
 </html>
+
 
 
