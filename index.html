@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+ <!DOCTYPE html>
 <html lang="lv">
 <head>
 <meta charset="UTF-8">
@@ -50,6 +51,38 @@ header {
   filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
 }
 
+/* Обертка языков + контактов на мобиле */
+.header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+/* LANG SWITCH */
+.lang-switch {
+  position: absolute;
+  top: 12px;
+  right: 40px;
+  display: flex;
+  gap: 10px;
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
+.lang-switch a {
+  color: var(--contact-color);
+  text-decoration: none;
+  transition: .3s;
+}
+
+.lang-switch a:hover,
+.lang-switch a.active {
+  color: var(--orange);
+  text-shadow: 0 0 8px rgba(166,124,0,0.5);
+}
+
+/* CONTACTS */
 .contact-right {
   display: flex;
   flex-direction: column;
@@ -77,25 +110,6 @@ header {
 .contact-right i {
   color: var(--orange);
   font-size: 1.15rem;
-}
-
-.lang-switch {
-  display: flex;
-  gap: 10px;
-  font-weight: 500;
-  font-size: 1.05rem;
-}
-
-.lang-switch a {
-  color: var(--contact-color);
-  text-decoration: none;
-  transition: .3s;
-}
-
-.lang-switch a:hover,
-.lang-switch a.active {
-  color: var(--orange);
-  text-shadow: 0 0 8px rgba(166,124,0,0.5);
 }
 
 /* HERO */
@@ -269,69 +283,49 @@ header {
 }
 
 @media(max-width:768px){
-
   header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100px;
-    padding: 0 15px;
+    padding: 10px 15px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
   }
 
-  body {
-    padding-top: 100px;
-  }
+  body { padding-top: 120px; } /* учитываем высоту лого + контакты */
 
   .logo-img { height: 80px; }
 
-  .contact-right {
-    position: static; /* убрать absolute */
-    font-size: 0.95rem;
-    gap: 5px;
-  }
-
-  .lang-switch {
-    top: auto;
-    right: auto;
-  }
+  /* LANG SWITCH и контакты вертикально */
+  .header-right { flex-direction: column; align-items: flex-end; gap: 5px; }
+  .lang-switch { position: static; order: 0; margin-bottom: 5px; }
+  .contact-right { position: static; order: 1; font-size: 0.95rem; gap: 5px; }
 
   .gallery-section { padding: 30px 20px 50px; }
-
   .section-title { font-size: 2.2rem; }
 }
 
 @media(max-width:576px){
-
-  header { height: 90px; }
-
-  body { padding-top: 90px; }
-
+  header { height: auto; }
+  body { padding-top: 110px; }
   .logo-img { height: 70px; }
 
   .gallery { grid-template-columns: repeat(2,1fr); gap: 16px; }
 
   .footer-slogan { font-size: 0.92rem; }
-
-  .footer .contact {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px 20px; /* вертикальный и горизонтальный gap */
-  }
+  .footer .contact { flex-wrap: wrap; justify-content: center; gap: 10px 20px; }
 }
 
-@media(max-width:400px){
-  .gallery { grid-template-columns: 1fr; }
-}
- </style>
+@media(max-width:400px){ .gallery { grid-template-columns: 1fr; } }
+
+</style>
 </head>
 <body>
-  <!-- HEADER -->
-  <header>
-    <img src="photo/logo1.jpg" alt="ESDESIGN Logo" class="logo-img">
+<header>
+  <img src="photo/logo1.jpg" alt="ESDESIGN Logo" class="logo-img">
+  <div class="header-right">
     <div class="lang-switch">
       <a href="#" data-lang="lv" class="active">LV</a>
       <a href="#" data-lang="en">EN</a>
@@ -340,12 +334,14 @@ header {
       <a href="tel:+37125538622"><i class="fas fa-phone"></i> +37125538622</a>
       <a href="mailto:vintageironstairs@gmail.com"><i class="fas fa-envelope"></i> vintageironstairs@gmail.com</a>
     </div>
-  </header>
-  <!-- HERO -->
-  <section class="hero">
-    <img src="photo/baner21.jpg" alt="Spirālveida kāpnes" class="hero-image">
-  </section>
-  <!-- GALLERY -->
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <img src="photo/baner21.jpg" alt="Spirālveida kāpnes" class="hero-image">
+</section>
+<!-- GALLERY -->
   <section class="gallery-section">
     <p class="section-description desc1">
       Mēs izgatavojam spirālveida kāpnes vintāžas stilā — ar ažūrām metāla pakāpēm, dekoratīviem ornamentiem un izteiksmīgu centrālo balstu.
@@ -489,6 +485,7 @@ Mēs radām nevis tikai kāpnes, bet izteiksmīgu interjera arhitektonisko akcen
   </script>
 </body>
 </html>
+
 
 
 
