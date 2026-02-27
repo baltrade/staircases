@@ -51,9 +51,6 @@ header {
 }
 
 .contact-right {
-  position: absolute;
-  right: 40px;
-  bottom: 12px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -83,9 +80,6 @@ header {
 }
 
 .lang-switch {
-  position: absolute;
-  top: 12px;
-  right: 40px;
   display: flex;
   gap: 10px;
   font-weight: 500;
@@ -255,6 +249,7 @@ header {
 .footer .contact {
   display: flex;
   gap: 20px;
+  flex-wrap: nowrap;
 }
 
 .footer .contact a {
@@ -282,6 +277,9 @@ header {
     width: 100%;
     height: 100px;
     padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   body {
@@ -289,6 +287,17 @@ header {
   }
 
   .logo-img { height: 80px; }
+
+  .contact-right {
+    position: static; /* убрать absolute */
+    font-size: 0.95rem;
+    gap: 5px;
+  }
+
+  .lang-switch {
+    top: auto;
+    right: auto;
+  }
 
   .gallery-section { padding: 30px 20px 50px; }
 
@@ -306,6 +315,12 @@ header {
   .gallery { grid-template-columns: repeat(2,1fr); gap: 16px; }
 
   .footer-slogan { font-size: 0.92rem; }
+
+  .footer .contact {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 20px; /* вертикальный и горизонтальный gap */
+  }
 }
 
 @media(max-width:400px){
@@ -474,6 +489,7 @@ Mēs radām nevis tikai kāpnes, bet izteiksmīgu interjera arhitektonisko akcen
   </script>
 </body>
 </html>
+
 
 
 
