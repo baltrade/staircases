@@ -1,409 +1,317 @@
 <!DOCTYPE html>
 <html lang="lv">
 <head>
-  <meta charset="UTF-8">
-  <title>Vintage Iron Stairs – Spirālveida Kāpnes Premium Stilā</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    :root {
-      --bg: #1c1c1e;
-      --text: #e0e0e0;
-      --orange: #8B6A0E;
-      --warm-yellow: #d4af37;
-      --gray-text: #cccccc; /* Updated to brighter light gray */
-      --contact-color: #c0c0c0;
-    }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background: var(--bg) url('photo/marble-bg.jpg') no-repeat center/cover; /* Замените на реальный путь к текстуре */
-      color: var(--text);
-      overflow-x: hidden;
-    }
-    /* HEADER */
-    header {
-      position: relative;
-      z-index: 100;
-      padding: 0 40px;
-      height: 120px; /* Increased height to fit logo */
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #000000; /* Updated to solid black */
-      backdrop-filter: blur(12px);
-      max-width: 1400px;
-      margin: 0 auto;
-      border-bottom: 1px solid rgba(166,124,0,0.15);
-    }
-    .logo-img {
-      height: 100px;
-      max-width: 400px;
-      object-fit: contain;
-      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
-    }
-    .contact-right {
-      position: absolute;
-      right: 40px;
-      bottom: 12px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 6px;
-      font-weight: 500;
-      font-size: 1.05rem;
-    }
-    .contact-right a {
-      color: var(--contact-color);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: all .3s ease;
-      white-space: nowrap;
-    }
-    .contact-right a:hover {
-      color: var(--orange);
-      text-shadow: 0 0 8px rgba(166,124,0,0.5);
-    }
-    .contact-right a i {
-      color: var(--orange) !important;
-      font-size: 1.15rem;
-    }
-    .lang-switch {
-      position: absolute;
-      top: 12px;
-      right: 40px;
-      display: flex;
-      gap: 10px;
-      font-weight: 500;
-      font-size: 1.05rem;
-    }
-    .lang-switch a {
-      color: var(--contact-color);
-      text-decoration: none;
-      transition: all .3s ease;
-    }
-    .lang-switch a:hover,
-    .lang-switch a.active {
-      color: var(--orange);
-      text-shadow: 0 0 8px rgba(166,124,0,0.5);
-    }
-    /* HERO */
-    .hero {
-      height: 70vw;
-      max-height: 80vh;
-      min-height: 400px;
-      overflow: hidden;
-      position: relative;
-      background: var(--bg);
-    }
-    .hero-image {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center;
-      display: block;
-    }
-    /* GALLERY SECTION */
-    .gallery-section {
-      padding: 40px 40px 60px;
-      background: #2a2a2c;
-      text-align: left;
-    }
-    .section-description {
-      font-size: 1.2rem;
-      color: var(--gray-text);
-      line-height: 1.6;
-      text-align: justify;
-      margin-bottom: 20px;
-      font-weight: 400;
-    }
-    .section-title {
-      font-size: 2.8rem;
-      margin: 60px 0 15px;
-      letter-spacing: 1px;
-      font-weight: 700;
-      text-transform: uppercase;
-      text-align: center;
-      background: linear-gradient(135deg, #8c8c88 0%, #b8b8b5 50%, #a0a09c 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 0 4px rgba(140,140,136,0.3));
-      text-shadow: 0 1px 1px rgba(0,0,0,0.1);
-    }
-    .services-list {
-      list-style: none;
-      padding: 0;
-      margin: 20px 0;
-    }
-    .services-list li {
-      font-size: 1.2rem;
-      color: var(--gray-text);
-      margin-bottom: 16px;
-      display: flex;
-      align-items: flex-start;
-    }
-    .services-list li i {
-      margin-right: 14px;
-      font-size: 0.8em;
-      font-weight: 900;
-      width: 28px;
-      text-align: center;
-      color: var(--orange); /* Updated to match icon gold color */
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 25px;
-      margin-top: 60px;
-    }
-    .project-card {
-      background: #252525;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,.3);
-      transition: all .4s cubic-bezier(.25,.8,.25,1);
-      border: 1px solid #333;
-      cursor: pointer;
-      aspect-ratio: 3/4;
-      min-height: 400px;
-    }
-    .project-card:hover {
-      transform: translateY(-10px);
-      border-color: var(--orange);
-      box-shadow: 0 8px 20px rgba(166,124,0,.15);
-    }
-    .main-photo {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      transition: transform .4s ease;
-      background: #252525;
-      display: block;
-      cursor: pointer;
-    }
-    .main-photo:hover {
-      transform: scale(1.04);
-    }
-    /* MODAL */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,.97);
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      flex-direction: column;
-      gap: 15px;
-    }
-    .modal-content {
-      max-width: 92%;
-      max-height: 82vh;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 0 60px rgba(166,124,0,.25);
-      border: 1px solid #444;
-      position: relative;
-    }
-    .modal img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-      transform: scale(0.95);
-      transition: transform .5s ease;
-      cursor: default;
-    }
-    .modal img.active {
-      transform: scale(1);
-    }
-    .close-btn {
-      position: absolute;
-      background: var(--warm-yellow);
-      color: #000;
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      font-size: 26px;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all .3s ease;
-      box-shadow: 0 4px 15px rgba(0,0,0,.5);
-      z-index: 10;
-    }
-    .close-btn:hover {
-      background: #fff;
-      transform: scale(1.15);
-      box-shadow: 0 6px 20px rgba(166,124,0,.6);
-    }
-    .close-btn { top: 20px; right: 20px; }
-    /* FOOTER */
-    .footer {
-      position: relative;
-      padding: 22px 20px;
-      background: linear-gradient(to top, rgba(28,28,30,0.8), rgba(42,42,44,0.6));
-      border-top: 1px solid rgba(166,124,0,0.2);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 14px;
-      text-align: center;
-    }
-    .footer-slogan {
-      font-size: 1.5rem;
-      color: var(--contact-color);
-      line-height: 1.6;
-      font-weight: 400;
-      margin: 0;
-      padding: 0 15px;
-      text-align: center;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 100%;
-      display: block;
-    }
-    .footer .contact {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      max-width: 500px;
-      padding: 0 20px;
-      flex-wrap: nowrap;
-      gap: 20px;
-    }
-    .footer .contact a {
-      font-size: 1rem;
-      color: var(--contact-color);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: 0.3s;
-      white-space: nowrap;
-    }
-    .footer .contact a:hover {
-      color: var(--orange);
-    }
-    .footer .contact i {
-      color: var(--orange);
-      font-size: 1.1rem;
-    }
-    /* АДАПТИВНОСТЬ */
-    @media(max-width:992px) {
-      .gallery { grid-template-columns: repeat(2,1fr); }
-      .section-title { font-size: 2.4rem; }
-      .footer-slogan { font-size: 1.35rem; }
-    }
-    @media(max-width:768px) {
-      header { 
-        position: fixed; 
-        top: 0; 
-        left: 0; 
-        width: 100%; 
-        height: 100px; /* Increased height for mobile */
-        padding: 0 15px; 
-        z-index: 100; 
-      }
-      .logo-img { height: 80px; max-width: 300px; }
-      .contact-right { right: 15px; bottom: 10px; font-size: .95rem; gap: 5px; }
-      .lang-switch { right: 15px; top: 10px; font-size: .95rem; gap: 8px; }
-   .hero { 
-  height: auto;
-  margin-top: 100px; /* высота header */
+<meta charset="UTF-8">
+<title>Vintage Iron Stairs – Spirālveida Kāpnes Premium Stilā</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root {
+  --bg: #1c1c1e;
+  --text: #e0e0e0;
+  --orange: #8B6A0E;
+  --warm-yellow: #d4af37;
+  --gray-text: #cccccc;
+  --contact-color: #c0c0c0;
 }
 
-.hero { 
-  height: auto;
-  min-height: unset;
-  max-height: unset;
-  margin-top: 100px; /* высота header */
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--bg) url('photo/marble-bg.jpg') no-repeat center/cover;
+  color: var(--text);
+  overflow-x: hidden;
 }
 
-      .gallery-section { padding: 30px 20px 50px; }
-      .section-title { font-size: 2.2rem; }
-      .section-description { font-size: 1.1rem; }
-      .services-list li { font-size: 1.1rem; }
-      .services-list li i { font-size: 0.7em; margin-right: 12px; }
-      .footer { padding: 18px 15px; gap: 12px; }
-      .footer-slogan { font-size: 1.25rem; }
-      .footer .contact { justify-content: center; gap: 15px; }
-    }
-    .hero {
-  height: auto !important;
-  min-height: 0 !important;
-  max-height: none !important;
-  margin-top: 100px;
+/* HEADER */
+header {
+  position: relative;
+  z-index: 100;
+  padding: 0 40px;
+  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #000000;
+  backdrop-filter: blur(12px);
+  max-width: 1400px;
+  margin: 0 auto;
+  border-bottom: 1px solid rgba(166,124,0,0.15);
+}
+
+.logo-img {
+  height: 100px;
+  max-width: 400px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
+}
+
+.contact-right {
+  position: absolute;
+  right: 40px;
+  bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
+.contact-right a {
+  color: var(--contact-color);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: .3s;
+  white-space: nowrap;
+}
+
+.contact-right a:hover {
+  color: var(--orange);
+  text-shadow: 0 0 8px rgba(166,124,0,0.5);
+}
+
+.contact-right i {
+  color: var(--orange);
+  font-size: 1.15rem;
+}
+
+.lang-switch {
+  position: absolute;
+  top: 12px;
+  right: 40px;
+  display: flex;
+  gap: 10px;
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
+.lang-switch a {
+  color: var(--contact-color);
+  text-decoration: none;
+  transition: .3s;
+}
+
+.lang-switch a:hover,
+.lang-switch a.active {
+  color: var(--orange);
+  text-shadow: 0 0 8px rgba(166,124,0,0.5);
+}
+
+/* HERO */
+.hero {
+  width: 100%;
+  background: var(--bg);
 }
 
 .hero-image {
   width: 100%;
-  height: auto !important;
+  height: auto;
+  display: block;
   object-fit: cover;
 }
-    @media(max-width:576px) {
-      header { height: 90px; padding: 0 12px; } /* Increased height for smaller mobile */
-      .logo-img { height: 70px; max-width: 250px; }
-      .contact-right { right: 12px; bottom: 8px; font-size: .9rem; gap: 4px; }
-      .contact-right i { font-size: 1.05rem; }
-      .lang-switch { right: 12px; top: 8px; font-size: .9rem; gap: 6px; }
-      .hero { height: 100vh; }
-      .gallery { grid-template-columns: repeat(2,1fr); gap: 16px; margin-top: 40px; }
-      .project-card { min-height: 0; aspect-ratio: 3/4; }
-      .section-title { font-size: 1.8rem; margin-top: 40px; }
-      .section-description { font-size: 1.0rem; }
-      .services-list li { font-size: 1.0rem; }
-      .services-list li i { font-size: 0.7em; margin-right: 10px; }
-      .footer .contact a { font-size: .85rem; }
-      .footer {
-        padding: 10px 12px;
-        gap: 6px;
-        align-items: center;
-        text-align: center;
-      }
-      .footer-slogan {
-        font-size: 0.92rem;
-        padding: 0 10px;
-        line-height: 1.4;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        text-align: center;
-      }
-      .footer .contact {
-        justify-content: center;
-        gap: 12px;
-        padding: 0 10px;
-      }
-    }
-    @media(max-width:480px) {
-      .footer-slogan { font-size: 0.88rem; }
-      .footer .contact a { font-size: 0.82rem; }
-    }
-    @media(max-width:400px) {
-      .footer-slogan { font-size: 0.84rem; }
-      .footer .contact a { font-size: 0.8rem; }
-      .gallery { grid-template-columns: 1fr; }
-      .footer .contact { gap: 10px; }
-    }
-    @media(orientation:landscape) and (max-height:600px) {
-      .hero { height: 90vh; max-height: none; }
-    }
-  </style>
+
+/* GALLERY SECTION */
+.gallery-section {
+  padding: 40px 40px 60px;
+  background: #2a2a2c;
+}
+
+.section-description {
+  font-size: 1.2rem;
+  color: var(--gray-text);
+  line-height: 1.6;
+  text-align: justify;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 2.8rem;
+  margin: 60px 0 15px;
+  text-transform: uppercase;
+  text-align: center;
+  background: linear-gradient(135deg, #8c8c88 0%, #b8b8b5 50%, #a0a09c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.services-list {
+  list-style: none;
+  margin: 20px 0;
+}
+
+.services-list li {
+  font-size: 1.2rem;
+  color: var(--gray-text);
+  margin-bottom: 16px;
+  display: flex;
+}
+
+.services-list li i {
+  margin-right: 14px;
+  font-size: 0.8em;
+  width: 28px;
+  text-align: center;
+  color: var(--orange);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 25px;
+  margin-top: 60px;
+}
+
+.project-card {
+  background: #252525;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,.3);
+  transition: .4s;
+  border: 1px solid #333;
+  aspect-ratio: 3/4;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--orange);
+}
+
+.main-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: .4s;
+}
+
+.main-photo:hover {
+  transform: scale(1.04);
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  background: rgba(0,0,0,.97);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.modal-content {
+  max-width: 92%;
+  max-height: 82vh;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid #444;
+}
+
+.modal img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--warm-yellow);
+  color: #000;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* FOOTER */
+.footer {
+  padding: 22px 20px;
+  background: linear-gradient(to top, rgba(28,28,30,0.8), rgba(42,42,44,0.6));
+  border-top: 1px solid rgba(166,124,0,0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.footer-slogan {
+  font-size: 1.5rem;
+  color: var(--contact-color);
+}
+
+.footer .contact {
+  display: flex;
+  gap: 20px;
+}
+
+.footer .contact a {
+  color: var(--contact-color);
+  text-decoration: none;
+  display: flex;
+  gap: 6px;
+}
+
+.footer .contact i {
+  color: var(--orange);
+}
+
+/* RESPONSIVE */
+@media(max-width:992px){
+  .gallery { grid-template-columns: repeat(2,1fr); }
+}
+
+@media(max-width:768px){
+
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    padding: 0 15px;
+  }
+
+  body {
+    padding-top: 100px;
+  }
+
+  .logo-img { height: 80px; }
+
+  .gallery-section { padding: 30px 20px 50px; }
+
+  .section-title { font-size: 2.2rem; }
+}
+
+@media(max-width:576px){
+
+  header { height: 90px; }
+
+  body { padding-top: 90px; }
+
+  .logo-img { height: 70px; }
+
+  .gallery { grid-template-columns: repeat(2,1fr); gap: 16px; }
+
+  .footer-slogan { font-size: 0.92rem; }
+}
+
+@media(max-width:400px){
+  .gallery { grid-template-columns: 1fr; }
+}
+ </style>
 </head>
 <body>
   <!-- HEADER -->
@@ -566,6 +474,7 @@ Mēs radām nevis tikai kāpnes, bet izteiksmīgu interjera arhitektonisko akcen
   </script>
 </body>
 </html>
+
 
 
 
